@@ -1,3 +1,4 @@
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,34 +6,42 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #ff6a00); 
+    color: #fff;
     line-height: 1.6;
+    padding: 0;
+    overflow-x: hidden;
 }
 
+/* Main Container */
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 2s ease-out;
 }
 
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    color: #444;
+    font-size: 3rem;
+    color: #50fa7b; /* Green */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+    animation: slideInFromLeft 1.5s ease-out;
 }
 
 .terms {
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 2;
+    color: #f0f0f0;
+    animation: slideInFromRight 2s ease-out;
 }
 
 .terms ul {
@@ -41,16 +50,71 @@ header h1 {
 }
 
 .terms li {
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
 footer {
     text-align: center;
-    font-size: 0.9rem;
-    color: #777;
+    font-size: 1.1rem;
     margin-top: 40px;
+    color: #f0f0f0;
 }
 
-footer p {
-    margin-bottom: 10px;
+footer a {
+    color: #50fa7b;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #ffb86c;
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes glitch {
+    0% {
+        transform: skew(0deg);
+    }
+    50% {
+        transform: skew(-5deg);
+    }
+    100% {
+        transform: skew(5deg);
+    }
+}
+
+header h1 {
+    animation: glitch 1s infinite linear;
 }
