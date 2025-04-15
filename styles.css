@@ -6,23 +6,28 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #ff6a00); 
-    color: #fff;
-    line-height: 1.6;
+    font-family: 'Russo One', sans-serif; /* Agresivan font */
+    background: url('https://cdn.discordapp.com/attachments/1360930890125152467/1361715373145063555/banner_buffx.png?ex=67ffc3c4&is=67fe7244&hm=a731ee74b6a8c195fce1371118ff47b01a774e9ac9a5150ea3e05bb7f633c9eb&=&format=webp&quality=lossless&width=643&height=362') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
     padding: 0;
-    overflow-x: hidden;
+    margin: 0;
 }
 
-/* Main Container */
 .container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    animation: fadeIn 2s ease-out;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.7); /* Mračniji prozirni sloj za bolji kontrast */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+    animation: zoomIn 0.5s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.0); /* Efekat povećanja kada se prelazi preko */
 }
 
 header {
@@ -31,90 +36,89 @@ header {
 }
 
 header h1 {
-    font-size: 3rem;
-    color: #50fa7b; /* Green */
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
-    animation: slideInFromLeft 1.5s ease-out;
+    font-size: 4rem;
+    color: #50fa7b; /* Jaka zelena */
+    text-transform: uppercase;
+    text-shadow: 0px 0px 15px rgba(80, 250, 123, 0.8); /* Svetleći efekat oko teksta */
+    animation: textGlow 1s ease-in-out infinite alternate; /* Efekat treperenja */
 }
 
 .terms {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 2;
     color: #f0f0f0;
-    animation: slideInFromRight 2s ease-out;
+    opacity: 0;
+    animation: fadeIn 2s forwards; /* Animacija da tekst ulazi u ekran */
+    padding: 10px;
 }
 
 .terms ul {
     list-style-type: none;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .terms li {
-    margin: 15px 0;
+    margin: 20px 0;
+    font-weight: normal;
+    color: #ffb86c;
+    text-shadow: 0px 0px 10px rgba(255, 184, 108, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+.terms li:hover {
+    color: #50fa7b;
+    text-shadow: 0px 0px 20px rgba(80, 250, 123, 1);
 }
 
 footer {
     text-align: center;
-    font-size: 1.1rem;
-    margin-top: 40px;
-    color: #f0f0f0;
+    font-size: 1.2rem;
+    margin-top: 30px;
 }
 
 footer a {
-    color: #50fa7b;
+    color: #ffb86c;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: 2px solid #ffb86c;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 footer a:hover {
-    color: #ffb86c;
+    background: #50fa7b;
+    color: #000000;
     text-decoration: underline;
+    border: 2px solid #50fa7b;
 }
 
-/* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideInFromLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInFromRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes glitch {
     0% {
-        transform: skew(0deg);
-    }
-    50% {
-        transform: skew(-5deg);
+        opacity: 0;
     }
     100% {
-        transform: skew(5deg);
+        opacity: 1;
     }
 }
 
-header h1 {
-    animation: glitch 1s infinite linear;
+@keyframes textGlow {
+    0% {
+        text-shadow: 0px 0px 5px rgba(80, 250, 123, 0.7);
+    }
+    100% {
+        text-shadow: 0px 0px 20px rgba(80, 250, 123, 1);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
